@@ -16,6 +16,10 @@
 		6B309D762752AAA4007DBCD4 /* ChallengeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309D752752AAA4007DBCD4 /* ChallengeAppTests.swift */; };
 		6B309D802752AAA4007DBCD4 /* ChallengeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309D7F2752AAA4007DBCD4 /* ChallengeAppUITests.swift */; };
 		6B309D822752AAA4007DBCD4 /* ChallengeAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309D812752AAA4007DBCD4 /* ChallengeAppUITestsLaunchTests.swift */; };
+		6B309D8F2752AEB5007DBCD4 /* LocationProxy+CLLocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309D8E2752AEB5007DBCD4 /* LocationProxy+CLLocationManagerDelegate.swift */; };
+		6B309D912752CA09007DBCD4 /* Tracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309D902752CA09007DBCD4 /* Tracker.swift */; };
+		6B309D942752DCB6007DBCD4 /* TrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309D932752DCB6007DBCD4 /* TrackerDelegate.swift */; };
+		6B309D962752DD7C007DBCD4 /* ViewController+TrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309D952752DD7C007DBCD4 /* ViewController+TrackerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,11 @@
 		6B309D7B2752AAA4007DBCD4 /* ChallengeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChallengeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B309D7F2752AAA4007DBCD4 /* ChallengeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAppUITests.swift; sourceTree = "<group>"; };
 		6B309D812752AAA4007DBCD4 /* ChallengeAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChallengeAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		6B309D8E2752AEB5007DBCD4 /* LocationProxy+CLLocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LocationProxy+CLLocationManagerDelegate.swift"; sourceTree = "<group>"; };
+		6B309D902752CA09007DBCD4 /* Tracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tracker.swift; sourceTree = "<group>"; };
+		6B309D922752D443007DBCD4 /* new.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = new.gpx; sourceTree = "<group>"; };
+		6B309D932752DCB6007DBCD4 /* TrackerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerDelegate.swift; sourceTree = "<group>"; };
+		6B309D952752DD7C007DBCD4 /* ViewController+TrackerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+TrackerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +88,7 @@
 		6B309D522752AAA1007DBCD4 = {
 			isa = PBXGroup;
 			children = (
+				6B309D922752D443007DBCD4 /* new.gpx */,
 				6B309D5D2752AAA1007DBCD4 /* ChallengeApp */,
 				6B309D742752AAA4007DBCD4 /* ChallengeAppTests */,
 				6B309D7E2752AAA4007DBCD4 /* ChallengeAppUITests */,
@@ -100,8 +110,12 @@
 			isa = PBXGroup;
 			children = (
 				6B309D5E2752AAA1007DBCD4 /* AppDelegate.swift */,
+				6B309D902752CA09007DBCD4 /* Tracker.swift */,
+				6B309D8E2752AEB5007DBCD4 /* LocationProxy+CLLocationManagerDelegate.swift */,
+				6B309D932752DCB6007DBCD4 /* TrackerDelegate.swift */,
 				6B309D602752AAA1007DBCD4 /* SceneDelegate.swift */,
 				6B309D622752AAA1007DBCD4 /* ViewController.swift */,
+				6B309D952752DD7C007DBCD4 /* ViewController+TrackerDelegate.swift */,
 				6B309D642752AAA1007DBCD4 /* Main.storyboard */,
 				6B309D672752AAA4007DBCD4 /* Assets.xcassets */,
 				6B309D692752AAA4007DBCD4 /* LaunchScreen.storyboard */,
@@ -258,9 +272,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B309D962752DD7C007DBCD4 /* ViewController+TrackerDelegate.swift in Sources */,
 				6B309D632752AAA1007DBCD4 /* ViewController.swift in Sources */,
+				6B309D942752DCB6007DBCD4 /* TrackerDelegate.swift in Sources */,
 				6B309D5F2752AAA1007DBCD4 /* AppDelegate.swift in Sources */,
 				6B309D612752AAA1007DBCD4 /* SceneDelegate.swift in Sources */,
+				6B309D912752CA09007DBCD4 /* Tracker.swift in Sources */,
+				6B309D8F2752AEB5007DBCD4 /* LocationProxy+CLLocationManagerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
