@@ -20,7 +20,8 @@ class Tracker:NSObject {
         let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.allowsBackgroundLocationUpdates = true
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.pausesLocationUpdatesAutomatically = false
+        locationManager.requestAlwaysAuthorization()
         return locationManager
     }()
     
@@ -31,10 +32,10 @@ class Tracker:NSObject {
             self.delegate.didDetectDeviceLimitations()
         }
     }
-
+    
     public func startTracking(){
         isTracking = true
-        locationManager.requestLocation()
+        resumeMonitoring()
     }
     
     public func stopTracking(){
@@ -45,6 +46,17 @@ class Tracker:NSObject {
         let region = CLCircularRegion(center: location.coordinate, radius: 100, identifier: Self.regionID)
         region.notifyOnExit = true
         locationManager.startMonitoring(for: region)
+    }
+    
+    func resumeMonitoring(){        
+        if isTracking {
+            if let location = locationManager.location {
+                self.delegate.didUpdateLocation(location: location)
+                self.monitorRegionFrom(location:location)
+            }else{
+                locationManager.requestLocation()
+            }
+        }
     }
     
 }

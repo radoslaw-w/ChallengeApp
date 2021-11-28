@@ -9,7 +9,6 @@ import Foundation
 import CoreLocation
 import UIKit
 
-
 extension ViewController{
     
     func searchPhoto(at location:CLLocation){
@@ -31,25 +30,14 @@ extension ViewController{
     func downloadPhoto(at imageUrl:URL){
         URLSession.shared.downloadTask(with: imageUrl) {
             [weak self]  (tempUrl, response, error) in
+            if let error = error {
+                print("Error:\(error)")
+                return
+            }
             if let safeTempUrl = tempUrl {
                 self?.saveFile(at: safeTempUrl)
             }
         }.resume()
-    }
-    
-    private func getFlickrSearchURL(for location:CLLocation) -> URL?{
-        let latitude = String(location.coordinate.latitude)
-        let longitude = String(location.coordinate.longitude)
-        let queryItems = [URLQueryItem(name: "method", value: "flickr.photos.search"),
-                          URLQueryItem(name: "api_key", value: "c3c38861c3e034fe2649635e7a18826e"),
-                          URLQueryItem(name: "lat", value: latitude),
-                          URLQueryItem(name: "lon", value: longitude),
-                          URLQueryItem(name: "per_page", value: "1"),
-                          URLQueryItem(name: "format", value: "json"),
-                          URLQueryItem(name: "nojsoncallback", value: "1")]
-        var components = URLComponents(string: "https://www.flickr.com/services/rest/")!
-        components.queryItems = queryItems
-        return components.url
     }
     
     private func saveFile(at fileURL:URL){
@@ -62,4 +50,20 @@ extension ViewController{
             print("Error: \(error)")
         }
     }
+    
+    private func getFlickrSearchURL(for location:CLLocation) -> URL?{
+        let latitude = String(location.coordinate.latitude)
+        let longitude = String(location.coordinate.longitude)
+        let queryItems = [URLQueryItem(name: "method", value: "flickr.photos.search"),
+                          URLQueryItem(name: "api_key", value: Self.apiKey),
+                          URLQueryItem(name: "lat", value: latitude),
+                          URLQueryItem(name: "lon", value: longitude),
+                          URLQueryItem(name: "per_page", value: "1"),
+                          URLQueryItem(name: "format", value: "json"),
+                          URLQueryItem(name: "nojsoncallback", value: "1")]
+        var components = URLComponents(string: "https://www.flickr.com/services/rest/")!
+        components.queryItems = queryItems
+        return components.url
+    }
+    
 }

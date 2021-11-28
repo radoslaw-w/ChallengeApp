@@ -11,6 +11,7 @@ import Combine
 class ViewController: UIViewController {
     static let CellID = "CellID"
     static let photosPath = "Photos"
+    static let apiKey = "c3c38861c3e034fe2649635e7a18826e"
     
     @IBOutlet weak var collectionView: UICollectionView!
     var dataSource: UICollectionViewDiffableDataSource<Int, CellData>!
@@ -50,6 +51,21 @@ class ViewController: UIViewController {
         setupView()
         bindUI()
     }
+    
+    func snapshotData() {
+        var snapshot = NSDiffableDataSourceSnapshot<Int, CellData>()
+        if let files = try? FileManager.default.contentsOfDirectory(atPath: documentsURL.path){
+            snapshot.appendSections([0])
+            let items = files.sorted(by: >)
+                .map { documentsURL.appendingPathComponent($0)}
+                .map { CellData(url:$0)}
+            snapshot.appendItems(items)
+        }
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            self?.dataSource.apply(snapshot, animatingDifferences: false)
+      }
+    }
+    
     
     private func setupView(){
         navigationItem.rightBarButtonItem = rightBarButtonItem

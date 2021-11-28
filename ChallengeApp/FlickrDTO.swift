@@ -23,7 +23,7 @@ struct FlickrURLs: Codable {
     let farm: Int
     
     var url:URL  {
-        let fileName = "\(id)_\(secret).jpg"
+        let fileName = "\(id)_\(secret)_b.jpg"
         var photoURL = URL(string: "https://live.staticflickr.com/")!
         photoURL.appendPathComponent(server)
         photoURL.appendPathComponent(fileName)

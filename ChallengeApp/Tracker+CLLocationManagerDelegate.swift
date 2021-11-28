@@ -14,35 +14,24 @@ extension Tracker: CLLocationManagerDelegate {
     // MARK: - Location updates
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if isTracking {
-            guard let location = locations.first else {
-                locationManager.requestLocation()
-                return
-            }
-            self.delegate.didUpdateLocation(location: location)
-            self.monitorRegionFrom(location:location)
-        }
+        resumeMonitoring()
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
         locationManager.stopMonitoring(for: region)
-        locationManager.requestLocation()
+        resumeMonitoring()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        if isTracking {
-            locationManager.requestLocation()
-        }
+        resumeMonitoring()
     }
     
     // MARK: - Authorization
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        DispatchQueue.main.asyncAfter(deadline: .now()+1){
-            switch manager.authorizationStatus {
-            case .authorizedWhenInUse,.notDetermined: break
+        switch manager.authorizationStatus {
+        case .authorizedAlways,.notDetermined: break
             default: self.delegate.didReceiveInsuffitientPermissions()
             }
-        }
     }
 }

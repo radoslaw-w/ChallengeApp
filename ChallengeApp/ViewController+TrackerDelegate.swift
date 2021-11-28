@@ -12,20 +12,12 @@ extension ViewController: TrackerDelegate {
     
     func didUpdateLocation(location: CLLocation) {
         searchPhoto(at:location)
-        
     }
     
-    private func alert(message:String){
-        let alert = UIAlertController(title: "Warning",
-                                      message: message,
-                                      preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default))
-        present(alert, animated: true)
-    }
     func didReceiveInsuffitientPermissions() {
         let message = """
-        Without your permissions we will not be able to track your location.
-        Please change Privacy settings.
+        Please change Privacy settings to Always Allow tracking.
+        Without your permissions we will not be able to track your locations in background mode.
         """
         self.alert(message: message)
         
@@ -33,11 +25,17 @@ extension ViewController: TrackerDelegate {
     
     func didDetectDeviceLimitations() {
         let message = """
-        Monitoring is not avaliable on this device
+        Monitoring is not avaliable on this device :(
         """
         self.alert(message: message)
     }
     
-    
+    private func alert(message:String){
+        let alert = UIAlertController(title: "Thank you!",
+                                      message: message,
+                                      preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
     
 }
