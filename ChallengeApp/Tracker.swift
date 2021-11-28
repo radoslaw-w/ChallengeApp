@@ -1,5 +1,5 @@
 //
-//  LocationProxy.swift
+//  Tracker.swift
 //  ChallengeApp
 //
 //  Created by Radosław Winkler on 27/11/2021.
@@ -31,15 +31,14 @@ class Tracker:NSObject {
             self.delegate.didDetectDeviceLimitations()
         }
     }
- 
-    public func initiateTracking(){
+
+    public func startTracking(){
         isTracking = true
         locationManager.requestLocation()
     }
     
     public func stopTracking(){
         isTracking = false
-        locationManager.stopUpdatingLocation()
     }
     
     func monitorRegionFrom(location:CLLocation){
@@ -47,5 +46,5 @@ class Tracker:NSObject {
         region.notifyOnExit = true
         locationManager.startMonitoring(for: region)
     }
- 
+    
 }

@@ -11,7 +11,8 @@ import CoreLocation
 extension ViewController: TrackerDelegate {
     
     func didUpdateLocation(location: CLLocation) {
-        print("did moce\(location)")
+        searchPhoto(at:location)
+        
     }
     
     private func alert(message:String){
@@ -27,7 +28,7 @@ extension ViewController: TrackerDelegate {
         Please change Privacy settings.
         """
         self.alert(message: message)
-
+        
     }
     
     func didDetectDeviceLimitations() {
@@ -37,6 +38,6 @@ extension ViewController: TrackerDelegate {
         self.alert(message: message)
     }
     
-
+    
     
 }
