@@ -10,10 +10,6 @@ import CoreLocation
 
 extension ViewController: TrackerDelegate {
     
-    func didUpdateLocation(location: CLLocation) {
-        searchPhoto(at:location)
-    }
-    
     func didReceiveInsuffitientPermissions() {
         let message = """
         Please change Privacy settings to Always Allow tracking.

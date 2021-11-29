@@ -14,6 +14,7 @@ class Tracker:NSObject {
     
     let delegate:TrackerDelegate
     @Published var isTracking = false
+    let moveSubject = PassthroughSubject<CLLocation,Never>()
     var cancellables = Set<AnyCancellable>()
     
     public lazy var locationManager:CLLocationManager = {
@@ -48,10 +49,10 @@ class Tracker:NSObject {
         locationManager.startMonitoring(for: region)
     }
     
-    func resumeMonitoring(){        
+    func resumeMonitoring(){
         if isTracking {
-            if let location = locationManager.location {
-                self.delegate.didUpdateLocation(location: location)
+            if let location = locationManager.location { 
+                self.moveSubject.send(location)
                 self.monitorRegionFrom(location:location)
             }else{
                 locationManager.requestLocation()

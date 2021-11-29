@@ -26,6 +26,7 @@
 		6B309DA22752FABE007DBCD4 /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B309DA02752FABE007DBCD4 /* Cell.xib */; };
 		6B309DA4275370E8007DBCD4 /* FlickrDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309DA3275370E8007DBCD4 /* FlickrDTO.swift */; };
 		6B309DA627540923007DBCD4 /* CellData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309DA527540923007DBCD4 /* CellData.swift */; };
+		6B309DA827558F65007DBCD4 /* FetchError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B309DA727558F65007DBCD4 /* FetchError.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		6B309DA02752FABE007DBCD4 /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
 		6B309DA3275370E8007DBCD4 /* FlickrDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrDTO.swift; sourceTree = "<group>"; };
 		6B309DA527540923007DBCD4 /* CellData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellData.swift; sourceTree = "<group>"; };
+		6B309DA727558F65007DBCD4 /* FetchError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FetchError.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 				6B309D902752CA09007DBCD4 /* Tracker.swift */,
 				6B309D8E2752AEB5007DBCD4 /* Tracker+CLLocationManagerDelegate.swift */,
 				6B309D932752DCB6007DBCD4 /* TrackerDelegate.swift */,
+				6B309DA727558F65007DBCD4 /* FetchError.swift */,
 				6B309D622752AAA1007DBCD4 /* ViewController.swift */,
 				6B309D9D2752F830007DBCD4 /* ViewController+UICollectionView.swift */,
 				6B309D952752DD7C007DBCD4 /* ViewController+TrackerDelegate.swift */,
@@ -296,6 +299,7 @@
 				6B309D982752E3CA007DBCD4 /* ViewController+Flickr.swift in Sources */,
 				6B309D5F2752AAA1007DBCD4 /* AppDelegate.swift in Sources */,
 				6B309D612752AAA1007DBCD4 /* SceneDelegate.swift in Sources */,
+				6B309DA827558F65007DBCD4 /* FetchError.swift in Sources */,
 				6B309D912752CA09007DBCD4 /* Tracker.swift in Sources */,
 				6B309DA4275370E8007DBCD4 /* FlickrDTO.swift in Sources */,
 				6B309D8F2752AEB5007DBCD4 /* Tracker+CLLocationManagerDelegate.swift in Sources */,

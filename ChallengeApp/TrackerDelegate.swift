@@ -10,6 +10,5 @@ import CoreLocation
 
 protocol TrackerDelegate{
     func didReceiveInsuffitientPermissions()
-    func didDetectDeviceLimitations()
-    func didUpdateLocation(location:CLLocation)
+    func didDetectDeviceLimitations() 
 }
